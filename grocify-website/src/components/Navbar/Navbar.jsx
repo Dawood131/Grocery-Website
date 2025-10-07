@@ -26,7 +26,7 @@ const Navbar = () => {
                 </ul>
 
                 {/* Nav input */}
-                <div className='flex items-center gap-x-3'>
+                <div className='flex items-center gap-x-3 mb-1'>
                     <div className='md:flex border-2 border-orange-500 p-1 rounded-full hidden'>
                         <input type="text" name="text" id="" placeholder='Search...' autoComplete='off' className='flex-1 h-[6vh] focus:outline-none px-3' />
                         <button className='bg-gradient-to-b from-red-600 to-orange-600 text-white text-2xl flex justify-center items-center w-10 h-10 rounded-full hover:bg-gradient-to-t from-orange active:bg-gradient-to-b to bg-orange-500'><IoIosSearch /></button>
@@ -51,7 +51,7 @@ const Navbar = () => {
                     
                     <li className='flex border-2 border-orange-500 p-1 rounded-full md:hidden'>
                         <input type="text" name="text" id="" placeholder='Search...' autoComplete='off' className='flex-1 h-[6vh] focus:outline-none px-3' />
-                        <button className='bg-gradient-to-b from-red-600 to-orange-600 text-white text-2xl flex justify-center items-center w-10 h-10 rounded-full hover:bg-gradient-to-t from-orange active:bg-gradient-to-b to bg-orange-500 mt-2'><IoIosSearch /></button>
+                        <button className='bg-gradient-to-b from-red-600 to-orange-600 text-white text-2xl flex justify-center items-center w-10 h-10 rounded-full hover:bg-gradient-to-t from-orange active:bg-gradient-to-b to bg-orange-500 mt-1.5'><IoIosSearch /></button>
                     </li>
                 </ul>
             </nav>
