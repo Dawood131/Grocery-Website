@@ -28,7 +28,7 @@ const Navbar = () => {
                 {/* Desktop Menu */}
                 <ul className='md:flex items-center gap-x-15 hidden'>
                     <li><a href="" className='font-semibold tracking-wide text-orange-500'>Home</a></li>
-                    <li><a href="" className='font-semibold tracking-wide text-zinc hover:text-orange-500'>About Us</a></li>
+                    <li><a href="" className='font-semibold tracking-wide text-zinc hover:text-orange-500'>Category</a></li>
                     <li><a href="" className='font-semibold tracking-wide text-zinc hover:text-orange-500'>Process</a></li>
                     <li><a href="" className='font-semibold tracking-wide text-zinc hover:text-orange-500'>Contact Us</a></li>
                 </ul>
@@ -53,7 +53,7 @@ const Navbar = () => {
                     ${showMenu ? "translate-x-0" : "translate-x-full"}`}>
 
                     <li><a href="" className='font-semibold tracking-wide text-orange-500'>Home</a></li>
-                    <li><a href="" className='font-semibold tracking-wide text-zinc hover:text-orange-500'>About Us</a></li>
+                    <li><a href="" className='font-semibold tracking-wide text-zinc hover:text-orange-500'>Category</a></li>
                     <li><a href="" className='font-semibold tracking-wide text-zinc hover:text-orange-500'>Process</a></li>
                     <li><a href="" className='font-semibold tracking-wide text-zinc hover:text-orange-500'>Contact Us</a></li>
 

@@ -29,7 +29,7 @@ const Category = () => {
     })
 
     return (
-        <section className="mb-20"> {/* 👈 bas ye add kia for spacing */}
+        <section className="mb-20">
             <div className='mt-5'>
                 <Headings highlight="Shop" heading="By Category" />
             </div>
