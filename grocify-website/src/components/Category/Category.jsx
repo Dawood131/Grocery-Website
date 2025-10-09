@@ -3,7 +3,7 @@ import Headings from '../Headings/Headings'
 import FruitCat from '../../assets/fruits-and-veggies.png'
 import DairyCat from '../../assets/dairy-and-eggs.png'
 import SeaFoodCat from '../../assets/meat-and-seafood.png'
-import Button from '../Button/Button'
+import { Link } from 'react-router-dom'
 
 const Category = () => {
     // Card 
@@ -21,7 +21,7 @@ const Category = () => {
                         <p className='text-zinc-600 mt-3 mb-8'>{card.description}</p>
                     </div>
                     <div>
-                        <Button content="See All" />
+                        <Link to ="/fruit" className='bg-gradient-to-b from-orange-400 to-orange-500 px-7 py-3 text-white text-lg rounded-lg hover:to-orange-600 hover:scale-103 transition-all duration-300 cursor-pointer active:scale-100'>See All</Link>
                     </div>
                 </div>
             </div>

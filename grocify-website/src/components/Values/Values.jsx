@@ -6,7 +6,7 @@ import basket from '../../assets/basket-full-vegetables.png'
 const Values = () => {
     const leftValues = value.slice(0, 2).map(item => {
         return (
-            <div>
+            <div key={item.id}>
                 <div className='flex md:flex-row-reverse'>
                     <span className='bg-gradient-to-b from-orange-400 to-orange-500 w-15 h-15 rounded-full flex items-center justify-center text-3xl text-white'>{item.icon}</span>
                 </div>
@@ -19,7 +19,7 @@ const Values = () => {
     })
     const rightValues = value.slice(2).map(item => {
         return (
-            <div>
+            <div key={item.id}>
                 <div className='flex'>
                     <span className='bg-gradient-to-b from-orange-400 to-orange-500 w-15 h-15 rounded-full flex items-center justify-center text-3xl text-white'>{item.icon}</span>
                 </div>
