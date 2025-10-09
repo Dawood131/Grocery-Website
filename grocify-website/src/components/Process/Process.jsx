@@ -39,18 +39,21 @@ const steps = [
 const Process = () => {
   const rendersteps = steps.map(Item => (
     <div
-      key={Item.id} // ✅ Unique key added, design unchanged
-      className={`flex-1 basis-[300] ${Item.id % 2 ===0 ? "md:-mt-100": ""}`}
+      key={Item.id} // Unique key
+      className={`flex-1 min-w-[280px] md:basis-[300px] flex flex-col items-center
+        ${Item.id % 2 === 0 ? "md:-mt-[100px]" : ""}
+      `}
     >
-      <span className='flex justify-center items-center rounded-full outline-[3px] outline-dashed outline-offset-7 outline-zinc-800 mx-auto w-18 h-18 text-8xl text-white bg-zinc-800'>
+      {/* Number */}
+      <span className='flex justify-center items-center rounded-full outline-[3px] outline-dashed outline-offset-7 outline-zinc-800 w-[72px] h-[72px] text-9xl text-zinc-800 bg-white mb-6'>
         {Item.number}
       </span>
 
-      <div className='flex items-center gap-x-5 mt-10'>
-        <span className='flex bg-gradient-to-b from-orange-400 to-orange-500 text-white w-15 h-15 text-3xl rounded-full justify-center items-center'>
+      {/* Content */}
+      <div className='flex items-center gap-4 mt-0'>
+        <span className='flex bg-gradient-to-b from-orange-400 to-orange-500 text-white w-[60px] h-[60px] text-2xl rounded-full justify-center items-center'>
           {Item.icon}
         </span>
-
         <div className='flex-1'>
           <h4 className='text-zinc-800 text-2xl font-bold'>{Item.title}</h4>
           <p className='text-zinc-600 mt-2'>{Item.para}</p>
@@ -66,7 +69,7 @@ const Process = () => {
           <Headings highlight="Our" heading="Process" />
         </div>
 
-        <div className='flex flex-wrap gap-y-17 items-center justify-center md:mt-20 mt-10 md:pt-40'>
+        <div className='flex flex-wrap items-stretch justify-center gap-y-[68px] md:gap-y-[80px] md:mt-20 mt-10 md:pt-40'>
           {rendersteps}
         </div>
       </div>
