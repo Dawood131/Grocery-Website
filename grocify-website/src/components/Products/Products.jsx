@@ -2,25 +2,23 @@ import React, { useState, useMemo } from 'react'
 import Headings from '../Headings/Headings'
 import ProductsList from '../ProductsList/ProductsList'
 import Cards from '../Cards/Cards'
-import Button from '../Button/Button'
+import { Link } from 'react-router-dom'
 
 const Products = () => {
     const categories = useMemo(() => ["All", "Fruits", "Vegetables", "Dairy", "SeaFood"], [])
     const [activeTab, setActiveTab] = useState("All")
-    const visibleCount = 8 // maximum 8 products
+    const visibleCount = 8
 
-    // Filter Products by Category
     const filteredProducts = useMemo(() => {
         return activeTab === "All"
             ? ProductsList
             : ProductsList.filter(product => product.category === activeTab)
     }, [activeTab])
 
-    // Slice products to show maximum 8
     const visibleProducts = filteredProducts.slice(0, visibleCount)
 
     return (
-        <section className="py-10">
+        <section className="py-10" id="products">
             <div className='max-w-screen-xl mx-auto px-4 sm:px-6 lg:px-20'>
                 <Headings highlight="Our" heading="Products" />
 
@@ -51,10 +49,8 @@ const Products = () => {
                         />
                     ))}
                 </div>
-
-                {/* Dummy Button */}
                 <div className="flex justify-center mt-10">
-                    <Button content="View All" />
+                    <Link to={"/allproducts"} className='bg-gradient-to-b from-orange-400 to-orange-500 px-7 py-3 text-white text-lg rounded-lg hover:to-orange-600 hover:scale-103 transition-all duration-300 cursor-pointer active:scale-100'> See All </Link>
                 </div>
             </div>
         </section>

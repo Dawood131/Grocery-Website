@@ -1,8 +1,12 @@
 import React from 'react'
+import Categorypage from '../Categorypage/Categorypage'
+import bgfruit from '../../assets/Fruits-Banner.jpg'
 
 const Fruit = () => {
   return (
-    <div>Fruit</div>
+    <div>
+      <Categorypage title="Fruits & Vaggies" bgImage={bgfruit} categories={["Fruits", "Vegetables"]} />
+    </div>
   )
 }
 

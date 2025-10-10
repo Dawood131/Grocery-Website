@@ -39,7 +39,7 @@ const Values = () => {
                     <div className='flex-1 m-h-100 flex flex-col justify-between gap-15'>
                         {leftValues}
                     </div>
-                    <div  className='md:flex w-2/5 hidden'>
+                    <div className='md:flex w-2/5 hidden'>
                         <img src={basket} />
                     </div>
                     {/* Right  */}

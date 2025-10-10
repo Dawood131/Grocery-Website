@@ -21,7 +21,7 @@ const Category = () => {
                         <p className='text-zinc-600 mt-3 mb-8'>{card.description}</p>
                     </div>
                     <div>
-                        <Link to ="/fruit" className='bg-gradient-to-b from-orange-400 to-orange-500 px-7 py-3 text-white text-lg rounded-lg hover:to-orange-600 hover:scale-103 transition-all duration-300 cursor-pointer active:scale-100'>See All</Link>
+                        <Link to={card.path} className='bg-gradient-to-b from-orange-400 to-orange-500 px-7 py-3 text-white text-lg rounded-lg hover:to-orange-600 hover:scale-103 transition-all duration-300 cursor-pointer active:scale-100'>See All</Link>
                     </div>
                 </div>
             </div>
@@ -29,7 +29,7 @@ const Category = () => {
     })
 
     return (
-        <section className="mb-20">
+        <section className="mb-20" id="categories">
             <div className='mt-5'>
                 <Headings highlight="Shop" heading="By Category" />
             </div>
@@ -47,18 +47,21 @@ const foodcategory = [
         id: 1,
         title: "Fruits & Veggies",
         description: "Fresh, organic produce sourced daily from local farms. Explore a wide range of seasonal fruits and crisp vegetables.",
-        image: FruitCat
+        image: FruitCat,
+        path: "/fruit"
     },
     {
         id: 2,
         title: "Dairy & Eggs",
         description: "Wholesome dairy products and free-range eggs. From creamy milk and yogurt to artisanal cheeses.",
-        image: DairyCat
+        image: DairyCat,
+        path: "/dairy"
     },
     {
         id: 3,
         title: "Meat & SeaFood",
         description: "High-quality, responsibly sourced meat and seafood. Choose from fresh cuts, marinated options, and more.",
-        image: SeaFoodCat
+        image: SeaFoodCat,
+        path: "/seafoods"
     }
 ]
