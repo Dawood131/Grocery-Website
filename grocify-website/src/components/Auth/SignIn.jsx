@@ -1,22 +1,34 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import { useNavigate, Link } from "react-router-dom";
 
 const SignIn = () => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [showPassword, setShowPassword] = useState(false);
-  const [error, setError] = useState("");
   const navigate = useNavigate();
+
+  // If already logged in, redirect to home
+  useEffect(() => {
+    if (localStorage.getItem("isAuthenticated") === "true") {
+      navigate("/");
+    }
+  }, [navigate]);
 
   const handleSignIn = (e) => {
     e.preventDefault();
     const storedUser = JSON.parse(localStorage.getItem("user"));
 
-    if (storedUser && storedUser.email === email && storedUser.password === password) {
+    if (!storedUser) {
+      alert("No account found, please register first!");
+      navigate("/register");
+      return;
+    }
+
+    if (storedUser.email === email && storedUser.password === password) {
       localStorage.setItem("isAuthenticated", "true");
       navigate("/"); // redirect to home
     } else {
-      setError("Invalid email or password");
+      alert("Invalid email or password");
     }
   };
 
@@ -27,10 +39,11 @@ const SignIn = () => {
           Welcome Back
         </h2>
         <p className="text-center text-zinc-600 mt-2">
-          Sign in to continue with <span className="text-orange-500 font-bold">GrOcify</span>
+          Sign in to continue with <span className="text-orange-500 font-bold">Gr<span className="text-zinc-800">O</span>cify</span>
         </p>
 
         <form onSubmit={handleSignIn} className="mt-8">
+          {/* Email */}
           <div className="mb-4">
             <label className="block text-zinc-700 font-medium mb-2">Email</label>
             <input
@@ -43,6 +56,7 @@ const SignIn = () => {
             />
           </div>
 
+          {/* Password */}
           <div className="mb-4">
             <label className="block text-zinc-700 font-medium mb-2">Password</label>
             <div className="flex items-center border border-zinc-300 rounded-lg px-2 focus-within:ring-2 focus-within:ring-orange-500">
@@ -63,8 +77,6 @@ const SignIn = () => {
               </button>
             </div>
           </div>
-
-          {error && <p className="text-red-500 text-sm mb-4 text-center">{error}</p>}
 
           <button
             type="submit"

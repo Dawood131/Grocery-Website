@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { useNavigate, Link } from "react-router-dom"; // <-- add Link
+import { useNavigate, Link } from "react-router-dom";
 
 const Register = () => {
   const [name, setName] = useState("");
@@ -24,12 +24,18 @@ const Register = () => {
       return;
     }
 
-    // Save user in localStorage
-    localStorage.setItem("user", JSON.stringify({ name, email, password }));
-    localStorage.setItem("isAuthenticated", "true");
+    const storedUser = JSON.parse(localStorage.getItem("user"));
 
-    // ✅ Registration successful → go to home
-    navigate("/");
+    if (storedUser && storedUser.email === email) {
+      alert("Account already exists! Please Sign In.");
+      navigate("/signin");
+      return;
+    }
+
+    // Save new user in localStorage
+    localStorage.setItem("user", JSON.stringify({ name, email, password }));
+    alert("Account created successfully! Please Sign In.");
+    navigate("/signin");
   };
 
   return (
