@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { useNavigate } from "react-router-dom";
+import { useNavigate, Link } from "react-router-dom";
 
 const SignIn = () => {
   const [email, setEmail] = useState("");
@@ -10,18 +10,11 @@ const SignIn = () => {
 
   const handleSignIn = (e) => {
     e.preventDefault();
-
-    // Get stored user from localStorage
     const storedUser = JSON.parse(localStorage.getItem("user"));
 
-    if (
-      storedUser &&
-      storedUser.email === email &&
-      storedUser.password === password
-    ) {
-      // Login success
+    if (storedUser && storedUser.email === email && storedUser.password === password) {
       localStorage.setItem("isAuthenticated", "true");
-      navigate("/"); // redirect to website home
+      navigate("/"); // redirect to home
     } else {
       setError("Invalid email or password");
     }
@@ -34,12 +27,10 @@ const SignIn = () => {
           Welcome Back
         </h2>
         <p className="text-center text-zinc-600 mt-2">
-          Sign in to continue with{" "}
-          <span className="text-orange-500 font-bold">Gr<span className="text-zinc-800">O</span>cify</span>
+          Sign in to continue with <span className="text-orange-500 font-bold">GrOcify</span>
         </p>
 
         <form onSubmit={handleSignIn} className="mt-8">
-          {/* Email */}
           <div className="mb-4">
             <label className="block text-zinc-700 font-medium mb-2">Email</label>
             <input
@@ -52,35 +43,29 @@ const SignIn = () => {
             />
           </div>
 
-          {/* Password */}
-<div className="mb-4">
-  <label className="block text-zinc-700 font-medium mb-2">Password</label>
-  <div className="flex items-center border border-zinc-300 rounded-lg focus-within:ring-2 focus-within:ring-orange-500">
-    <input
-      type={showPassword ? "text" : "password"}
-      className="w-full px-4 py-2 rounded-l-lg focus:outline-none"
-      placeholder="Enter your password"
-      value={password}
-      onChange={(e) => setPassword(e.target.value)}
-      required
-    />
-    <button
-      type="button"
-      onClick={() => setShowPassword(!showPassword)}
-      className="px-3 text-sm text-orange-500 font-medium hover:text-orange-600"
-    >
-      {showPassword ? "Hide" : "Show"}
-    </button>
-  </div>
-</div>
+          <div className="mb-4">
+            <label className="block text-zinc-700 font-medium mb-2">Password</label>
+            <div className="flex items-center border border-zinc-300 rounded-lg px-2 focus-within:ring-2 focus-within:ring-orange-500">
+              <input
+                type={showPassword ? "text" : "password"}
+                className="w-full px-2 py-2 focus:outline-none"
+                placeholder="Enter your password"
+                value={password}
+                onChange={(e) => setPassword(e.target.value)}
+                required
+              />
+              <button
+                type="button"
+                onClick={() => setShowPassword(!showPassword)}
+                className="text-sm text-orange-500 font-medium"
+              >
+                {showPassword ? "Hide" : "Show"}
+              </button>
+            </div>
+          </div>
 
+          {error && <p className="text-red-500 text-sm mb-4 text-center">{error}</p>}
 
-          {/* Error */}
-          {error && (
-            <p className="text-red-500 text-sm mb-4 text-center">{error}</p>
-          )}
-
-          {/* Submit */}
           <button
             type="submit"
             className="w-full bg-orange-500 hover:bg-orange-600 text-white py-2 rounded-lg font-semibold transition"
@@ -91,9 +76,9 @@ const SignIn = () => {
 
         <p className="text-center text-zinc-600 mt-6">
           Don’t have an account?{" "}
-          <a href="/register" className="text-orange-500 font-medium hover:underline">
+          <Link to="/register" className="text-orange-500 font-medium hover:underline">
             Register
-          </a>
+          </Link>
         </p>
       </div>
     </div>

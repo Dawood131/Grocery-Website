@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { useNavigate } from "react-router-dom";
+import { useNavigate, Link } from "react-router-dom"; // <-- add Link
 
 const Register = () => {
   const [name, setName] = useState("");
@@ -140,12 +140,12 @@ const Register = () => {
 
         <p className="text-center text-zinc-600 mt-6">
           Already have an account?{" "}
-          <a
-            href="/signin"
+          <Link
+            to="/signin"
             className="text-orange-500 font-medium hover:underline"
           >
             Sign In
-          </a>
+          </Link>
         </p>
       </div>
     </div>
